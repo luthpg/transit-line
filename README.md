@@ -4,6 +4,10 @@
 
 A LIFF App to notify you of the best route to get home, powered by Cloudflare Workers and the Navitime API.
 
+## App Image
+
+![App Image](/public/app_image.png)
+
 ## ✨ Features
 
 - **Transit Route Search**: Find the optimal transit route based on your current location.
