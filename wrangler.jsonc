@@ -1,0 +1,33 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "train-line",
+	"main": "./dist/index.js",
+	"compatibility_date": "2025-10-03",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	// This directory contains the static assets (JS, CSS) for the frontend.
+	"assets": {
+		"directory": "./dist/static"
+	},
+	// These are non-secret variables.
+	// Secret variables should be managed with `wrangler secret put` and `.dev.vars`.
+	"vars": {
+		"VITE_LIFF_ID": "YOUR_LIFF_ID_HERE",
+		"VITE_ENV": "production"
+	},
+	"observability": {
+		"enabled": true,
+		"head_sampling_rate": 1
+	},
+	// KV Namespace for storing application data.
+	// The `id` is for production, and `preview_id` is for local development (`pnpm preview`).
+	// Create the preview namespace with: `npx wrangler kv:namespace create TRAIN_LINE --preview`
+	"kv_namespaces": [
+		{
+			"binding": "TRAIN_LINE",
+			"id": "YOUR_PRODUCTION_KV_ID_HERE",
+			"preview_id": "YOUR_PREVIEW_KV_ID_HERE"
+		}
+	]
+}
